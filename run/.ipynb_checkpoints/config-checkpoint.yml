@@ -1,0 +1,360 @@
+random_base: &random_base # base configuration for all random model
+  TRAIN_PATH: ../../Data/data/train64_0.mat
+  TEST_PATH: ../../Data/data/test64_0.mat
+  save_mode: state_dict # None means saving as .pt file (all model); or state_dict for .pkl file(only parameters of model)
+  patience: 10 # if there is {patience} epoch that val_error is larger, early stop,
+  print_model_flag: False # print model information or not
+
+random_best:
+  name: random_best # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 7 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 15000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+
+test:
+  name: test # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 6 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 500 # samples of training
+  ntest: 100   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+random_loss:
+  name: random_loss # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 7 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 15000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+random_5000:
+  name: random_5000 # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 6 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 5000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+random_1000:
+  name: random_1000 # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 6 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 1000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+random_500:
+  name: random_500 # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 6 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 500 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+random_2000:
+  name: random_2000 # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 6 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 2000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+
+random_cnn:
+  name: random_cnn # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 5 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 15000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+random_cnn2d:
+  name: random_cnn2d # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 6 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 15000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+random_fno:
+  name: random_fno # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 7 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,64,64] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 15000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+
+random_16:
+  name: random_16 # or add _normalization to test normalization in freq
+  <<: *random_base
+  cuda_id: 6 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [64,64,16,16] # resolution in (x,y) direction
+  r_train: [1,1,4,4] # Interval sampling
+  s_test: [64,64,64,64] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 15000 # samples of training
+  ntest: 3000   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+
+random_128:
+  load_name: random_best
+  name: random_128 # or add _normalization to test normalization in freq
+  TRAIN_PATH: ../../Data/data/train_random128_2_0.mat
+  TEST_PATH: ../../Data/data/test_random128_2_0.mat
+  save_mode: state_dict # None means saving as .pt file (all model); or state_dict for .pkl file(only parameters of model)
+  patience: 10 # if there is {patience} epoch that val_error is larger, early stop,
+  print_model_flag: False # print model information or not
+  cuda_id: 7 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [128,128,64,128] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [128,128,64,128] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 2000 # samples of training
+  ntest: 500   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
+
+random_128_3:
+  name: random_128_3 # or add _normalization to test normalization in freq
+  load_name: random_best
+  TRAIN_PATH: ../../Data/data/train_random128_3_0.mat
+  TEST_PATH: ../../Data/data/test_random128_3_0.mat
+  save_mode: state_dict # None means saving as .pt file (all model); or state_dict for .pkl file(only parameters of model)
+  patience: 10 # if there is {patience} epoch that val_error is larger, early stop,
+  print_model_flag: False # print model information or not
+  cuda_id: 7 # gpu ids, e.g. 0,1,2,3
+  n_out: 4 # rhoxy,phsxy,rhoyx,phsyx
+  thre_epoch: 300 # condiser early stop after {thre_epoch} epochs
+  s_train: [128,128,64,128] # resolution in (x,y) direction
+  r_train: [1,1,1,1] # Interval sampling
+  s_test: [128,128,64,128] # resolution in (x,y) direction
+  r_test: [1,1,1,1] # Interval sampling
+  layer_sizes: [2,128,128,128] # layer of fnn
+  layer_num: 6 # number of fno layer
+  last_size: 128 # size of last layer
+  modes: 18  # cutoff modes
+  width: 32  # width for Linear at first layer
+  act_fno : gelu # activation of fno layer
+  act_func: tanh
+  init_func: xavier_uniform
+  ntrain: 2000 # samples of training
+  ntest: 500   # samples of test
+  batch_size: 50
+  learning_rate: 0.001
+  epochs: 500
+  save_step: 10 # save model each steps
+  step_size: 50 # step size in scheduler
+  gamma: 0.5
