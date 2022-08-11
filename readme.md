@@ -4,6 +4,7 @@
 - PyTorch >=1.8.0. Pytorch 1.8.0 starts to support complex numbers and it has a new implementation of FFT
 
 ### files
+
 - run: containing excutable python files
     - `efno_field_2d.py` is the EFNO for predicting electirc and magnetic field
     - `efno_2d.py` is the EFNO for predicting apparent resistivity and phase
@@ -21,6 +22,14 @@
 ### Data
 
 shared in google drive: https://drive.google.com/drive/folders/12nnzinkdz84tAYOOEqsJTzKOgy1MUqpo?usp=sharing
+
+or you can generate training and testing samples by using python files in  `data_gen`.
+
+- `gaussian_random_fields.py`:using gaussian random filed with different length scale. 
+
+- `MT2D_secondary.py` is compute 2D MT response by using secondary filed method (SFM), Parallel version
+
+- `model_random.py`generate conductivity structures and compute the apparent resistivity and phase by using finite difference method.
 
 ### Usage
 ```shell
