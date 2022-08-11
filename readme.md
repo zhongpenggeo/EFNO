@@ -2,6 +2,11 @@
 
 ### Requirements
 - PyTorch >=1.8.0. Pytorch 1.8.0 starts to support complex numbers and it has a new implementation of FFT
+- torchinfo
+- yaml
+- numpy
+- scipy
+- ray
 
 ### files
 
