@@ -41,3 +41,15 @@ or you can generate training and testing samples by using python files in  `data
 cd ./run
 python efno_2d.py random_best
 ```
+### citing
+```
+@article{peng2022rapid,
+  title={Rapid surrogate modeling of electromagnetic data in frequency domain using neural operator},
+  author={Peng, Zhong and Yang, Bo and Xu, Yixian and Wang, Feng and Liu, Lian and Zhang, Yi},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  volume={60},
+  pages={1--12},
+  year={2022},
+  publisher={IEEE}
+}
+```
